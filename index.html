@@ -156,6 +156,573 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Huawei6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei6/">华为网络设备配置 第六节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei6/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="广播报文不能穿越路由器传播–解决办法"><a href="#广播报文不能穿越路由器传播–解决办法" class="headerlink" title="广播报文不能穿越路由器传播–解决办法"></a>广播报文不能穿越路由器传播–解决办法</h3><h2 id="配置DHCP中继"><a href="#配置DHCP中继" class="headerlink" title="配置DHCP中继"></a>配置DHCP中继</h2><pre><code>1，设置DHCP中继
+[Huawei]dhcp enable
+[Huawei]int e0/0/0
+[Huawei-Ethernet0/0/0]dhcp select relay --配置接口为中继模式
+[Huawei-Ethernet0/0/0]dhcp relay server-ip 192.168.12.1将客户端的报文中继到服务器192.168.12.1上
+
+2. 配置回程路由
+ip route-static 目标网段 掩码 DHCP中继服务器ip地址
+</code></pre><h1 id="网关是中继-只需要一个中继"><a href="#网关是中继-只需要一个中继" class="headerlink" title="网关是中继(只需要一个中继)"></a>网关是中继(只需要一个中继)</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Huawei 华为 路由器 交换机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Huawei5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei5/">华为网络设备配置 第五节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei5/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:03:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 路由表属性<br>reference 优先级  0-255 越小越优静态路由（static）  60 默认优先级<br>【R1】ip route-static 192.168.3.0 24 192.168.21.2 preference 61</p>
+<p>浮动路由技术 （更改优先级实现的）</p>
+<h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通信节点：  <span class="built_in">IP</span>地址</span><br><span class="line">            掩码</span><br><span class="line">            网关：进行网间通信</span><br><span class="line">            DNS：将域名解析为<span class="built_in">IP</span>地址</span><br></pre></td></tr></table></figure>
+<p>自动获取 –DHCP服务器</p>
+<p>DHCP 服务器搭建{网络设备的DHCP功能}</p>
+<h3 id="DHCP-配置："><a href="#DHCP-配置：" class="headerlink" title="DHCP 配置："></a>DHCP 配置：</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]interface Ethernet0/0/0</span><br><span class="line">       <span class="built_in"> ip address </span>192.168.1.99 24</span><br><span class="line">[Huawei]dhcp <span class="builtin-name">enable</span> --开启设备的DHCP功能</span><br><span class="line">[Huawei]ip<span class="built_in"> pool </span>hhh --配置地址池</span><br><span class="line">       <span class="built_in"> network </span>192.168.1.0 mask 255.255.255.0</span><br><span class="line">        gateway-list 192.168.1.99</span><br><span class="line">        dns-list 8.8.8.8</span><br><span class="line">[Huawei]int e0/0/0</span><br><span class="line">        dhcp select global  --调用全局地址池</span><br><span class="line">        </span><br><span class="line">client                            server</span><br><span class="line">    --------discover(广播)-------&gt;           1天   50%续租  87.5%</span><br><span class="line">    &lt;--------offer(单播)---------</span><br><span class="line">    --------request(广播)--------&gt;</span><br><span class="line">    &lt;------------ack(单播)--------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ipconfig --查看IP地址信息</span><br><span class="line">ipconfig /renew --重新获取IP地址</span><br><span class="line">ipconfig /release --释放ip地址等信息</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Huawei 华为 路由器 交换机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Huawei4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei4/">华为网络设备配置 第四节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei4/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">access -- 一般用来连接通信节点（终端） 进打出剥</span><br><span class="line">trunk  -- 一般用来连接网络设备 允许标签通过</span><br><span class="line">网络设备之间互联接口从大到小</span><br><span class="line">连接终端的时候 从小到大</span><br><span class="line"></span><br><span class="line">1. 创建vlan 并将连接PC的端口划入到相应的vlan中</span><br><span class="line">[Huawei]vlan batch 10 20</span><br><span class="line">[Huawei]undo<span class="built_in"> vlan </span>100 </span><br><span class="line">一次性创建多个vlan</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt;undo ter m   关闭警告</span><br><span class="line">[Huawei]undo info-center <span class="builtin-name">enable</span>  关闭设备的信息提示功能</span><br><span class="line"></span><br><span class="line">2. 配置Trunk 并允许vlan10<span class="built_in"> vlan </span>20 通过</span><br><span class="line">[Huawei]interface GigabitEthernet0/0/24</span><br><span class="line">[Huawei]port link-type trunk</span><br><span class="line">[Huawei]port trunk allow-pass<span class="built_in"> vlan </span>10 20</span><br><span class="line"></span><br><span class="line">display this 查看当前视图下的配置</span><br><span class="line"></span><br><span class="line">display cu 查看所有配置</span><br></pre></td></tr></table></figure>
+<h1 id="路由原理–路由器工作原理"><a href="#路由原理–路由器工作原理" class="headerlink" title="路由原理–路由器工作原理"></a>路由原理–路由器工作原理</h1><p>路由器–&gt;路由表–&gt;路由–&gt;路由是路由器转发数据的==唯一==参考依据（有则转发，无则丢弃）</p>
+<h2 id="路由表属性"><a href="#路由表属性" class="headerlink" title="路由表属性"></a>路由表属性</h2><blockquote>
+<p>目的网段 掩码 下一跳 出接口</p>
+</blockquote>
+<p>路由来源：</p>
+<ol>
+<li>直连路由  –自动生成，无需人工维护<ol>
+<li>接口UP</li>
+<li>接口配置IP地址接口IP地址所属网段会以直连路由形式自动添加进路由表</li>
+</ol>
+</li>
+<li><p>静态路由<br> 手工配置–通过手工配置静态路由告诉路由器该如何转发数据<br>ip route-static 目的网段 + 掩码 + 下一跳</p>
+</li>
+<li><p>动态路由</p>
+</li>
+</ol>
+<p>[Huawei]display ip routing-table  查看路由器路由表</p>
+<p>[接口视图下]shutdown             =====&gt; *down<br>[接口视图下]undo shutdown        =====&gt; up</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Huawei 华为 路由器 交换机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Huawei3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei3/">华为网络设备配置 第三节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei3/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:03:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="VLAN–虚拟局域网"><a href="#VLAN–虚拟局域网" class="headerlink" title="VLAN–虚拟局域网"></a>VLAN–虚拟局域网</h1><blockquote>
+<p>不同的部门 == 不同VLAN == 不同的网段<br><br>不同VLAN之间不可以互访 相同vlan之间可以互访</p>
+</blockquote>
+<h2 id="VLAN配置"><a href="#VLAN配置" class="headerlink" title="VLAN配置"></a>VLAN配置</h2><ol>
+<li>创建vlan</li>
+<li>将连接pc的端口划入相应的VLAN中</li>
+<li><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[jjj]vlan 10</span><br><span class="line">[jjj-vlan10]q</span><br><span class="line">[jjj]vlan 20</span><br><span class="line">[jjj-vlan20]q</span><br><span class="line">[jjj]int g0/0/1</span><br><span class="line">[jjj-GigabitEthernet0/0/1]port link-type access </span><br><span class="line">[jjj-GigabitEthernet0/0/1]port<span class="built_in"> default vlan </span>10</span><br><span class="line">[jjj-GigabitEthernet0/0/1]q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Huawei]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line"><span class="comment">#: ProtocolTransparent-vlan;    *: Management-vlan;</span></span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID <span class="built_in"> Type </span>   Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/5(D)      GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      </span><br><span class="line">                GE0/0/9(D)      GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     </span><br><span class="line">                GE0/0/13(D)     GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     </span><br><span class="line">                GE0/0/17(D)     GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     </span><br><span class="line">                GE0/0/21(D)     GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)      GE0/0/2(U)                                      </span><br><span class="line">20   common  UT:GE0/0/3(U)      GE0/0/4(U)                                      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0001                         </span><br><span class="line">10   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0010                         </span><br><span class="line">20   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0020</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><p>access – 一般用来连接通信系节点（终端）<br><br>特点：“进打出剥”–进入交换机打上vlan号标签 出去的时候剥掉 <br></p>
+<p>trunk  – 一般用来连接网络设备<br><br>特点：</p>
+<p>[Huawei]stp disable  –关闭生成树功能</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Huawei 华为 路由器 交换机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Huawei2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei2/">华为网络设备配置 第二节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei2/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:02:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="网络设备管理-命令行"><a href="#网络设备管理-命令行" class="headerlink" title="网络设备管理: 命令行"></a>网络设备管理: 命令行</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;Huawei&gt;</span> --用户视图（不能对设备操作配置，只能查看）</span><br><span class="line"><span class="symbol">&lt;Huawei&gt;</span><span class="built_in">system</span>-<span class="keyword">view</span></span><br><span class="line">[Huawei]--系统视图</span><br><span class="line">[Huawei]<span class="keyword">quit</span></span><br><span class="line"><span class="symbol">&lt;Huawei&gt;</span></span><br><span class="line"></span><br><span class="line">修改设备名称</span><br><span class="line">[Huawei]sysname hhh</span><br><span class="line">[hhh]sysname ggg</span><br><span class="line">[ggg]</span><br><span class="line"></span><br><span class="line">查看 <span class="keyword">display</span> 可以在任何视图下执行</span><br><span class="line">查看设备的当前时间 <span class="keyword">display</span> clock</span><br></pre></td></tr></table></figure>
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">tab</span><span class="comment">--命令自动补全</span></span><br><span class="line">?<span class="comment">--s?将以s开头的命令全部列出</span></span><br><span class="line">命令简写 <span class="comment">-- 确保命令的唯一性</span></span><br></pre></td></tr></table></figure>
+<p>ping——<br>request(请求)<br>replay(应答)</p>
+<h5 id="通过交换机实现网内通信"><a href="#通过交换机实现网内通信" class="headerlink" title="通过交换机实现网内通信"></a>通过交换机实现网内通信</h5><p>ipconfig–WINDOWS</p>
+<h5 id="通过路由器实现网间通信"><a href="#通过路由器实现网间通信" class="headerlink" title="通过路由器实现网间通信"></a>通过路由器实现网间通信</h5><p>网关——路由器接口上一个具体的IP地址<br><br>一般使用每个网段的第一个或者最后一个有效IP地址作为网关</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">配置接口1</span><br><span class="line">&lt;Huawei&gt;system-view</span><br><span class="line">[Huawei]interface Ethernet0/0/0</span><br><span class="line">[Huawei-Ethernet0/0/0]ip<span class="built_in"> address </span>192.168.1.1 24</span><br><span class="line">[Huawei-Ethernet0/0/0]quit</span><br><span class="line"></span><br><span class="line">配置接口2</span><br><span class="line">[Huawei]int e0/0/1</span><br><span class="line">[Huawei-Ethernet0/0/1]ip <span class="builtin-name">add</span> 192.168.2.1 24</span><br><span class="line">[Huawei-Ethernet0/0/0]q</span><br><span class="line"></span><br><span class="line">配置接口3</span><br><span class="line">[Huawei]int g0	</span><br><span class="line">[Huawei]int g0/0/0</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]ip <span class="builtin-name">add</span> 192.168.3.1 24</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]q</span><br><span class="line">[Huawei]</span><br><span class="line"></span><br><span class="line">查看设备的接口简要配置信息</span><br><span class="line">[Huawei]dis<span class="built_in"> ip </span>int b</span><br><span class="line">display<span class="built_in"> ip interface </span>brief</span><br><span class="line"></span><br><span class="line">[撤销]undo<span class="built_in"> ip </span><span class="builtin-name">add</span> 192.168.3.1 24</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Huawei 华为 交换机配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Huawei1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/Huawei1/">华为网络设备配置 第一节</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/Huawei1/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:00:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
+<li><p>网络组成：通信节点，网络设备，传输介质<br><br>通信节点：手机、电脑、ATM<br><br>网络设备：路由器、交换机、防火墙、集线器、网桥、AP、AC<br><br>传输介质:双胶线、光纤、同轴电缆、无线</p>
+</li>
+<li><p>网络中的通信节点上如何标识：==IP 地址（唯一标识）==</p>
+</li>
+<li>IPV4 地址:32 个二进制位 2^32</li>
+<li>A 0 0-127.开头</li>
+<li>B 10 128-191</li>
+<li>C 110 192-223</li>
+<li>D 1110 224-239</li>
+<li>E 其余都是E类 科研使用的 </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>单播地址（通信地址）<br>–给具体的通信节点使用</th>
+<th>组播地址</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td></td>
+<td>0  0-127.开头</td>
+</tr>
+<tr>
+<td>B</td>
+<td></td>
+<td>10  128-191</td>
+</tr>
+<tr>
+<td>C</td>
+<td></td>
+<td>192-223</td>
+</tr>
+<tr>
+<td>无</td>
+<td>D</td>
+<td>1110 224-239</td>
+</tr>
+</tbody>
+</table>
+<p>9.如何判断一个 IP 地址的网络位和主机位各占多少位？掩码<br>子网掩码：用来表示 1 个 IP 地址的网络位个数（使用连续的 1 对应 IP 地址的网络 位，使用连续的 0 对应的 IP 地址的主机位）<br>Mask:225.255.255.0 192.168.1.25 /24</p>
+<ol start="10">
+<li>==组播地址没有子网掩码==</li>
+<li>网络位-通过网络位区分不同的网络</li>
+<li>主机位-通过主机位区分同一网络中不同的主机</li>
+<li>通信关系：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>网内通信<br>（交换机）</th>
+<th>网间通信<br>（路由器）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>两个通信节点处于同一网络</td>
+<td>两个通信节点处于不同网络</td>
+</tr>
+</tbody>
+</table>
+<ol start="14">
+<li>如何判断两个通信结点的通信关系？<br><br>==通过判断通信节点IP地址的网络位是否相同==</li>
+<li>通信结点 ==A==：192.168.1.10/24<br>==B==: 192.168.2.10/24(网间通信)</li>
+<li>==网内==通信通过==交换机==<br><br>==网间==通信通过==路由器==</li>
+<li>以下特殊IP地址不能使用<br><ol>
+<li>网络位不全为0，主机位不全位0  192.168.1.0/24 –用来表示网段</li>
+<li>网络位不全为 0，主机位全为1   192.168.1.255/24 –用来表示</li>
+<li>0.0.0.0</li>
+<li>255.255.255.255</li>
+<li>127.x.x.x</li>
+<li>169.254.x.x</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/Huawei1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-解决cmd下看不清vim的问题-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -458,84 +1025,10 @@
 
 
   
-    <article id="post-关于大学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/23/关于大学/">关于大学</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/23/关于大学/" class="archive-article-date">
-  	<time datetime="2018-08-23T08:43:04.211Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>我读的大学相当于以前的一个三本院校，自从没有二本和三本的区分之后，我们统称为本科。自然学费对于我这样一个农村家庭来说，属实是一份不小的开支，高三想过复课，犹豫过也徘徊过，可最终还是放弃了复读，可能是对于高三那份艰苦的时光的畏惧，也可能是自己对于生活的妥协，反正无论如何，最终我去读了大学。很高兴的是如果在这个学校成绩好的话，可以去本部做交换生，很荣幸两年后的我如愿以偿，但是在真正面临选择的时候，多少也会有些犹豫，即便是你曾经梦寐以求的东西或者渴望的事情，但当他们真的来临的时候，让你面对选择的时候，你还是会犹豫。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/08/23/关于大学/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">随笔 大学 服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/23/关于大学/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -629,6 +1122,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Huawei 华为 路由器 交换机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Huawei 华为 交换机配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
@@ -637,11 +1142,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
