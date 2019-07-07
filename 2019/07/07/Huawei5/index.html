@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ha1cker">
 <meta property="og:description" content="路由表属性reference 优先级  0-255 越小越优静态路由（static）  60 默认优先级【R1】ip route-static 192.168.3.0 24 192.168.21.2 preference 61 浮动路由技术 （更改优先级实现的） DHCP1234通信节点：  IP地址            掩码            网关：进行网间通信            D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-07T06:06:06.155Z">
+<meta property="og:updated_time" content="2019-07-07T06:11:30.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="华为网络设备配置 第五节">
 <meta name="twitter:description" content="路由表属性reference 优先级  0-255 越小越优静态路由（static）  60 默认优先级【R1】ip route-static 192.168.3.0 24 192.168.21.2 preference 61 浮动路由技术 （更改优先级实现的） DHCP1234通信节点：  IP地址            掩码            网关：进行网间通信            D">
@@ -182,6 +182,7 @@
         <p> 路由表属性<br>reference 优先级  0-255 越小越优静态路由（static）  60 默认优先级<br>【R1】ip route-static 192.168.3.0 24 192.168.21.2 preference 61</p>
 <p>浮动路由技术 （更改优先级实现的）</p>
 <h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通信节点：  <span class="built_in">IP</span>地址</span><br><span class="line">            掩码</span><br><span class="line">            网关：进行网间通信</span><br><span class="line">            DNS：将域名解析为<span class="built_in">IP</span>地址</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>自动获取 –DHCP服务器</p>
 <p>DHCP 服务器搭建{网络设备的DHCP功能}</p>
 <h3 id="DHCP-配置："><a href="#DHCP-配置：" class="headerlink" title="DHCP 配置："></a>DHCP 配置：</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Huawei]interface Ethernet0/0/0</span><br><span class="line">       <span class="built_in"> ip address </span>192.168.1.99 24</span><br><span class="line">[Huawei]dhcp <span class="builtin-name">enable</span> --开启设备的DHCP功能</span><br><span class="line">[Huawei]ip<span class="built_in"> pool </span>hhh --配置地址池</span><br><span class="line">       <span class="built_in"> network </span>192.168.1.0 mask 255.255.255.0</span><br><span class="line">        gateway-list 192.168.1.99</span><br><span class="line">        dns-list 8.8.8.8</span><br><span class="line">[Huawei]int e0/0/0</span><br><span class="line">        dhcp select global  --调用全局地址池</span><br><span class="line">        </span><br><span class="line">client                            server</span><br><span class="line">    --------discover(广播)-------&gt;           1天   50%续租  87.5%</span><br><span class="line">    &lt;--------offer(单播)---------</span><br><span class="line">    --------request(广播)--------&gt;</span><br><span class="line">    &lt;------------ack(单播)--------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ipconfig --查看IP地址信息</span><br><span class="line">ipconfig /renew --重新获取IP地址</span><br><span class="line">ipconfig /release --释放ip地址等信息</span><br></pre></td></tr></table></figure>
@@ -424,15 +425,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Huawei 华为 交换机配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
+                <a href="javascript:void(0)" class="js-tag color1">Huawei 华为 交换机配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,11 +437,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

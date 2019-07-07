@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.hbxy.xyz">
   <title>华为网络设备配置 第三节 | Ha1cker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中 123456789101112131415161718192021222324252627282930313233343536[jjj]vlan 10[jjj-vlan10]q[jjj]vlan 20[jjj">
+  <meta name="description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
 <meta name="keywords" content="Huawei 华为 路由器 交换机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="华为网络设备配置 第三节">
 <meta property="og:url" content="http://blog.hbxy.xyz/2019/07/07/Huawei3/index.html">
 <meta property="og:site_name" content="Ha1cker">
-<meta property="og:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中 123456789101112131415161718192021222324252627282930313233343536[jjj]vlan 10[jjj-vlan10]q[jjj]vlan 20[jjj">
+<meta property="og:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-07T06:06:33.233Z">
+<meta property="og:updated_time" content="2019-07-07T06:11:31.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="华为网络设备配置 第三节">
-<meta name="twitter:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中 123456789101112131415161718192021222324252627282930313233343536[jjj]vlan 10[jjj-vlan10]q[jjj]vlan 20[jjj">
+<meta name="twitter:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
   
     <link rel="alternative" href="/atom.xml" title="Ha1cker" type="application/atom+xml">
   
@@ -185,9 +185,10 @@
 <h2 id="VLAN配置"><a href="#VLAN配置" class="headerlink" title="VLAN配置"></a>VLAN配置</h2><ol>
 <li>创建vlan</li>
 <li>将连接pc的端口划入相应的VLAN中</li>
-<li><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[jjj]vlan 10</span><br><span class="line">[jjj-vlan10]q</span><br><span class="line">[jjj]vlan 20</span><br><span class="line">[jjj-vlan20]q</span><br><span class="line">[jjj]int g0/0/1</span><br><span class="line">[jjj-GigabitEthernet0/0/1]port link-type access </span><br><span class="line">[jjj-GigabitEthernet0/0/1]port<span class="built_in"> default vlan </span>10</span><br><span class="line">[jjj-GigabitEthernet0/0/1]q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Huawei]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line"><span class="comment">#: ProtocolTransparent-vlan;    *: Management-vlan;</span></span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID <span class="built_in"> Type </span>   Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/5(D)      GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      </span><br><span class="line">                GE0/0/9(D)      GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     </span><br><span class="line">                GE0/0/13(D)     GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     </span><br><span class="line">                GE0/0/17(D)     GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     </span><br><span class="line">                GE0/0/21(D)     GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)      GE0/0/2(U)                                      </span><br><span class="line">20   common  UT:GE0/0/3(U)      GE0/0/4(U)                                      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0001                         </span><br><span class="line">10   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0010                         </span><br><span class="line">20   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0020</span><br></pre></td></tr></table></figure>
+<li><a id="more"></a>
 </li>
 </ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[jjj]vlan 10</span><br><span class="line">[jjj-vlan10]q</span><br><span class="line">[jjj]vlan 20</span><br><span class="line">[jjj-vlan20]q</span><br><span class="line">[jjj]int g0/0/1</span><br><span class="line">[jjj-GigabitEthernet0/0/1]port link-type access </span><br><span class="line">[jjj-GigabitEthernet0/0/1]port<span class="built_in"> default vlan </span>10</span><br><span class="line">[jjj-GigabitEthernet0/0/1]q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Huawei]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line"><span class="comment">#: ProtocolTransparent-vlan;    *: Management-vlan;</span></span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID <span class="built_in"> Type </span>   Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/5(D)      GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      </span><br><span class="line">                GE0/0/9(D)      GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     </span><br><span class="line">                GE0/0/13(D)     GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     </span><br><span class="line">                GE0/0/17(D)     GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     </span><br><span class="line">                GE0/0/21(D)     GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)      GE0/0/2(U)                                      </span><br><span class="line">20   common  UT:GE0/0/3(U)      GE0/0/4(U)                                      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0001                         </span><br><span class="line">10   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0010                         </span><br><span class="line">20   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0020</span><br></pre></td></tr></table></figure>
 <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><p>access – 一般用来连接通信系节点（终端）<br><br>特点：“进打出剥”–进入交换机打上vlan号标签 出去的时候剥掉 <br></p>
 <p>trunk  – 一般用来连接网络设备<br><br>特点：</p>
 <p>[Huawei]stp disable  –关闭生成树功能</p>
@@ -431,15 +432,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Huawei 华为 交换机配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
+                <a href="javascript:void(0)" class="js-tag color1">Huawei 华为 交换机配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,11 +444,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
