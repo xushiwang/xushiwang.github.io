@@ -335,26 +335,10 @@ ip route-static 目标网段 掩码 DHCP中继服务器ip地址
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">access -- 一般用来连接通信节点（终端） 进打出剥</span><br><span class="line">trunk  -- 一般用来连接网络设备 允许标签通过</span><br><span class="line">网络设备之间互联接口从大到小</span><br><span class="line">连接终端的时候 从小到大</span><br><span class="line"></span><br><span class="line">1. 创建vlan 并将连接PC的端口划入到相应的vlan中</span><br><span class="line">[Huawei]vlan batch 10 20</span><br><span class="line">[Huawei]undo<span class="built_in"> vlan </span>100 </span><br><span class="line">一次性创建多个vlan</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt;undo ter m   关闭警告</span><br><span class="line">[Huawei]undo info-center <span class="builtin-name">enable</span>  关闭设备的信息提示功能</span><br><span class="line"></span><br><span class="line">2. 配置Trunk 并允许vlan10<span class="built_in"> vlan </span>20 通过</span><br><span class="line">[Huawei]interface GigabitEthernet0/0/24</span><br><span class="line">[Huawei]port link-type trunk</span><br><span class="line">[Huawei]port trunk allow-pass<span class="built_in"> vlan </span>10 20</span><br><span class="line"></span><br><span class="line">display this 查看当前视图下的配置</span><br><span class="line"></span><br><span class="line">display cu 查看所有配置</span><br></pre></td></tr></table></figure>
-<h1 id="路由原理–路由器工作原理"><a href="#路由原理–路由器工作原理" class="headerlink" title="路由原理–路由器工作原理"></a>路由原理–路由器工作原理</h1><p>路由器–&gt;路由表–&gt;路由–&gt;路由是路由器转发数据的==唯一==参考依据（有则转发，无则丢弃）</p>
-<h2 id="路由表属性"><a href="#路由表属性" class="headerlink" title="路由表属性"></a>路由表属性</h2><blockquote>
-<p>目的网段 掩码 下一跳 出接口</p>
-</blockquote>
-<p>路由来源：</p>
-<ol>
-<li>直连路由  –自动生成，无需人工维护<ol>
-<li>接口UP</li>
-<li>接口配置IP地址接口IP地址所属网段会以直连路由形式自动添加进路由表</li>
-</ol>
-</li>
-<li><p>静态路由<br> 手工配置–通过手工配置静态路由告诉路由器该如何转发数据<br>ip route-static 目的网段 + 掩码 + 下一跳</p>
-</li>
-<li><p>动态路由</p>
-</li>
-</ol>
-<p>[Huawei]display ip routing-table  查看路由器路由表</p>
-<p>[接口视图下]shutdown             =====&gt; *down<br>[接口视图下]undo shutdown        =====&gt; up</p>
-
+        <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">access -- 一般用来连接通信节点（终端） 进打出剥</span><br><span class="line">trunk  -- 一般用来连接网络设备 允许标签通过</span><br><span class="line">网络设备之间互联接口从大到小</span><br><span class="line">连接终端的时候 从小到大</span><br><span class="line"></span><br><span class="line">1. 创建vlan 并将连接PC的端口划入到相应的vlan中</span><br><span class="line">[Huawei]vlan batch 10 20</span><br><span class="line">[Huawei]undo<span class="built_in"> vlan </span>100 </span><br><span class="line">一次性创建多个vlan</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/07/Huawei4/#more">more >></a>
+        
       
 
       
@@ -509,13 +493,10 @@ ip route-static 目标网段 掩码 DHCP中继服务器ip地址
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="网络设备管理-命令行"><a href="#网络设备管理-命令行" class="headerlink" title="网络设备管理: 命令行"></a>网络设备管理: 命令行</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Huawei</span>&gt;</span> --用户视图（不能对设备操作配置，只能查看）</span><br><span class="line"><span class="tag">&lt;<span class="name">Huawei</span>&gt;</span>system-view</span><br><span class="line">[Huawei]--系统视图</span><br><span class="line">[Huawei]quit</span><br><span class="line"><span class="tag">&lt;<span class="name">Huawei</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br><span class="line"></span><br><span class="line">修改设备名称</span><br><span class="line">[Huawei]sysname hhh</span><br><span class="line">[hhh]sysname ggg</span><br><span class="line">[ggg]</span><br><span class="line"></span><br><span class="line">查看 display 可以在任何视图下执行</span><br><span class="line">查看设备的当前时间 display clock</span><br></pre></td></tr></table></figure>
-<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">tab</span><span class="comment">--命令自动补全</span></span><br><span class="line">?<span class="comment">--s?将以s开头的命令全部列出</span></span><br><span class="line">命令简写 <span class="comment">-- 确保命令的唯一性</span></span><br></pre></td></tr></table></figure>
-<p>ping——<br>request(请求)<br>replay(应答)</p>
-<h5 id="通过交换机实现网内通信"><a href="#通过交换机实现网内通信" class="headerlink" title="通过交换机实现网内通信"></a>通过交换机实现网内通信</h5><p>ipconfig–WINDOWS</p>
-<h5 id="通过路由器实现网间通信"><a href="#通过路由器实现网间通信" class="headerlink" title="通过路由器实现网间通信"></a>通过路由器实现网间通信</h5><p>网关——路由器接口上一个具体的IP地址<br><br>一般使用每个网段的第一个或者最后一个有效IP地址作为网关</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">配置接口1</span><br><span class="line">&lt;Huawei&gt;system-view</span><br><span class="line">[Huawei]interface Ethernet0/0/0</span><br><span class="line">[Huawei-Ethernet0/0/0]ip<span class="built_in"> address </span>192.168.1.1 24</span><br><span class="line">[Huawei-Ethernet0/0/0]quit</span><br><span class="line"></span><br><span class="line">配置接口2</span><br><span class="line">[Huawei]int e0/0/1</span><br><span class="line">[Huawei-Ethernet0/0/1]ip <span class="builtin-name">add</span> 192.168.2.1 24</span><br><span class="line">[Huawei-Ethernet0/0/0]q</span><br><span class="line"></span><br><span class="line">配置接口3</span><br><span class="line">[Huawei]int g0	</span><br><span class="line">[Huawei]int g0/0/0</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]ip <span class="builtin-name">add</span> 192.168.3.1 24</span><br><span class="line">[Huawei-GigabitEthernet0/0/0]q</span><br><span class="line">[Huawei]</span><br><span class="line"></span><br><span class="line">查看设备的接口简要配置信息</span><br><span class="line">[Huawei]dis<span class="built_in"> ip </span>int b</span><br><span class="line">display<span class="built_in"> ip interface </span>brief</span><br><span class="line"></span><br><span class="line">[撤销]undo<span class="built_in"> ip </span><span class="builtin-name">add</span> 192.168.3.1 24</span><br></pre></td></tr></table></figure>
-
+        <h1 id="网络设备管理-命令行"><a href="#网络设备管理-命令行" class="headerlink" title="网络设备管理: 命令行"></a>网络设备管理: 命令行</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;Huawei&gt;</span> --用户视图（不能对设备操作配置，只能查看）</span><br><span class="line"><span class="symbol">&lt;Huawei&gt;</span><span class="built_in">system</span>-<span class="keyword">view</span></span><br><span class="line">[Huawei]--系统视图</span><br><span class="line">[Huawei]<span class="keyword">quit</span></span><br><span class="line"><span class="symbol">&lt;Huawei&gt;</span></span><br><span class="line">修改设备名称</span><br><span class="line">[Huawei]sysname hhh</span><br><span class="line">[hhh]sysname ggg</span><br><span class="line">[ggg]</span><br><span class="line">查看 <span class="keyword">display</span> 可以在任何视图下执行</span><br><span class="line">查看设备的当前时间 <span class="keyword">display</span> clock</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/07/Huawei2/#more">more >></a>
+        
       
 
       
@@ -1045,11 +1026,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Huawei 华为 路由器 交换机</a>
+                <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
+                <a href="javascript:void(0)" class="js-tag color3">Huawei 华为 路由器 交换机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1061,15 +1042,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

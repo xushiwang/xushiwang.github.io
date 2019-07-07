@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.hbxy.xyz">
   <title>华为网络设备配置 第四节 | Ha1cker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="交换机链路类型12345678910111213141516171819202122access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100">
+  <meta name="description" content="交换机链路类型123456789access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100 一次性创建多个vlan">
 <meta name="keywords" content="Huawei 华为 路由器 交换机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="华为网络设备配置 第四节">
 <meta property="og:url" content="http://blog.hbxy.xyz/2019/07/07/Huawei4/index.html">
 <meta property="og:site_name" content="Ha1cker">
-<meta property="og:description" content="交换机链路类型12345678910111213141516171819202122access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100">
+<meta property="og:description" content="交换机链路类型123456789access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100 一次性创建多个vlan">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-07T06:11:30.902Z">
+<meta property="og:updated_time" content="2019-07-07T06:23:50.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="华为网络设备配置 第四节">
-<meta name="twitter:description" content="交换机链路类型12345678910111213141516171819202122access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100">
+<meta name="twitter:description" content="交换机链路类型123456789access -- 一般用来连接通信节点（终端） 进打出剥trunk  -- 一般用来连接网络设备 允许标签通过网络设备之间互联接口从大到小连接终端的时候 从小到大1. 创建vlan 并将连接PC的端口划入到相应的vlan中[Huawei]vlan batch 10 20[Huawei]undo vlan 100 一次性创建多个vlan">
   
     <link rel="alternative" href="/atom.xml" title="Ha1cker" type="application/atom+xml">
   
@@ -179,7 +179,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">access -- 一般用来连接通信节点（终端） 进打出剥</span><br><span class="line">trunk  -- 一般用来连接网络设备 允许标签通过</span><br><span class="line">网络设备之间互联接口从大到小</span><br><span class="line">连接终端的时候 从小到大</span><br><span class="line"></span><br><span class="line">1. 创建vlan 并将连接PC的端口划入到相应的vlan中</span><br><span class="line">[Huawei]vlan batch 10 20</span><br><span class="line">[Huawei]undo<span class="built_in"> vlan </span>100 </span><br><span class="line">一次性创建多个vlan</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt;undo ter m   关闭警告</span><br><span class="line">[Huawei]undo info-center <span class="builtin-name">enable</span>  关闭设备的信息提示功能</span><br><span class="line"></span><br><span class="line">2. 配置Trunk 并允许vlan10<span class="built_in"> vlan </span>20 通过</span><br><span class="line">[Huawei]interface GigabitEthernet0/0/24</span><br><span class="line">[Huawei]port link-type trunk</span><br><span class="line">[Huawei]port trunk allow-pass<span class="built_in"> vlan </span>10 20</span><br><span class="line"></span><br><span class="line">display this 查看当前视图下的配置</span><br><span class="line"></span><br><span class="line">display cu 查看所有配置</span><br></pre></td></tr></table></figure>
+        <h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">access -- 一般用来连接通信节点（终端） 进打出剥</span><br><span class="line">trunk  -- 一般用来连接网络设备 允许标签通过</span><br><span class="line">网络设备之间互联接口从大到小</span><br><span class="line">连接终端的时候 从小到大</span><br><span class="line"></span><br><span class="line">1. 创建vlan 并将连接PC的端口划入到相应的vlan中</span><br><span class="line">[Huawei]vlan batch 10 20</span><br><span class="line">[Huawei]undo<span class="built_in"> vlan </span>100 </span><br><span class="line">一次性创建多个vlan</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Huawei&gt;undo ter m   关闭警告</span><br><span class="line">[Huawei]undo info-center <span class="builtin-name">enable</span>  关闭设备的信息提示功能</span><br><span class="line"></span><br><span class="line">2. 配置Trunk 并允许vlan10<span class="built_in"> vlan </span>20 通过</span><br><span class="line">[Huawei]interface GigabitEthernet0/0/24</span><br><span class="line">[Huawei]port link-type trunk</span><br><span class="line">[Huawei]port trunk allow-pass<span class="built_in"> vlan </span>10 20</span><br><span class="line"></span><br><span class="line">display this 查看当前视图下的配置</span><br><span class="line"></span><br><span class="line">display cu 查看所有配置</span><br></pre></td></tr></table></figure>
 <h1 id="路由原理–路由器工作原理"><a href="#路由原理–路由器工作原理" class="headerlink" title="路由原理–路由器工作原理"></a>路由原理–路由器工作原理</h1><p>路由器–&gt;路由表–&gt;路由–&gt;路由是路由器转发数据的==唯一==参考依据（有则转发，无则丢弃）</p>
 <h2 id="路由表属性"><a href="#路由表属性" class="headerlink" title="路由表属性"></a>路由表属性</h2><blockquote>
 <p>目的网段 掩码 下一跳 出接口</p>
@@ -434,11 +436,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Huawei 华为 路由器 交换机</a>
+                <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Huawei 华为 路由器 交换机 网络常识 IP/TCP</a>
+                <a href="javascript:void(0)" class="js-tag color3">Huawei 华为 路由器 交换机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,15 +452,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
