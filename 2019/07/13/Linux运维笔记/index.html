@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.hbxy.xyz">
-  <title>华为网络设备配置 第三节 | Ha1cker</title>
+  <title>Linux运维笔记 | Ha1cker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
-<meta name="keywords" content="Huawei 华为 路由器 交换机">
+  <meta name="description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
+<meta name="keywords" content="Linux 运维 命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="华为网络设备配置 第三节">
-<meta property="og:url" content="http://blog.hbxy.xyz/2019/07/07/Huawei3/index.html">
+<meta property="og:title" content="Linux运维笔记">
+<meta property="og:url" content="http://blog.hbxy.xyz/2019/07/13/Linux运维笔记/index.html">
 <meta property="og:site_name" content="Ha1cker">
-<meta property="og:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
+<meta property="og:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-07T06:11:31.493Z">
+<meta property="og:updated_time" content="2019-07-13T15:57:00.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="华为网络设备配置 第三节">
-<meta name="twitter:description" content="VLAN–虚拟局域网 不同的部门 == 不同VLAN == 不同的网段不同VLAN之间不可以互访 相同vlan之间可以互访  VLAN配置 创建vlan 将连接pc的端口划入相应的VLAN中">
+<meta name="twitter:title" content="Linux运维笔记">
+<meta name="twitter:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
   
     <link rel="alternative" href="/atom.xml" title="Ha1cker" type="application/atom+xml">
   
@@ -159,39 +159,268 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Huawei3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux运维笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      华为网络设备配置 第三节
+      Linux运维笔记
     </h1>
   
 
         
-        <a href="/2019/07/07/Huawei3/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:03:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+        <a href="/2019/07/13/Linux运维笔记/" class="archive-article-date">
+  	<time datetime="2019-07-13T15:56:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="VLAN–虚拟局域网"><a href="#VLAN–虚拟局域网" class="headerlink" title="VLAN–虚拟局域网"></a>VLAN–虚拟局域网</h1><blockquote>
-<p>不同的部门 == 不同VLAN == 不同的网段<br><br>不同VLAN之间不可以互访 相同vlan之间可以互访</p>
+        <p><strong>查看有多少IP访问</strong>  </p>
+<blockquote>
+<p>awk ‘{print $1}’ log_file|sort|uniq|wc -l</p>
 </blockquote>
-<h2 id="VLAN配置"><a href="#VLAN配置" class="headerlink" title="VLAN配置"></a>VLAN配置</h2><ol>
-<li>创建vlan</li>
-<li>将连接pc的端口划入相应的VLAN中</li>
-<li><a id="more"></a>
-</li>
-</ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[jjj]vlan 10</span><br><span class="line">[jjj-vlan10]q</span><br><span class="line">[jjj]vlan 20</span><br><span class="line">[jjj-vlan20]q</span><br><span class="line">[jjj]int g0/0/1</span><br><span class="line">[jjj-GigabitEthernet0/0/1]port link-type access </span><br><span class="line">[jjj-GigabitEthernet0/0/1]port<span class="built_in"> default vlan </span>10</span><br><span class="line">[jjj-GigabitEthernet0/0/1]q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Huawei]display vlan</span><br><span class="line">The total number of vlans is : 3</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">U: Up;         D: Down;         TG: Tagged;         UT: Untagged;</span><br><span class="line">MP: Vlan-mapping;               ST: Vlan-stacking;</span><br><span class="line"><span class="comment">#: ProtocolTransparent-vlan;    *: Management-vlan;</span></span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">VID <span class="built_in"> Type </span>   Ports                                                          </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">1    common  UT:GE0/0/5(D)      GE0/0/6(D)      GE0/0/7(D)      GE0/0/8(D)      </span><br><span class="line">                GE0/0/9(D)      GE0/0/10(D)     GE0/0/11(D)     GE0/0/12(D)     </span><br><span class="line">                GE0/0/13(D)     GE0/0/14(D)     GE0/0/15(D)     GE0/0/16(D)     </span><br><span class="line">                GE0/0/17(D)     GE0/0/18(D)     GE0/0/19(D)     GE0/0/20(D)     </span><br><span class="line">                GE0/0/21(D)     GE0/0/22(D)     GE0/0/23(D)     GE0/0/24(D)     </span><br><span class="line"></span><br><span class="line">10   common  UT:GE0/0/1(U)      GE0/0/2(U)                                      </span><br><span class="line">20   common  UT:GE0/0/3(U)      GE0/0/4(U)                                      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VID  Status  Property      MAC-LRN Statistics Description      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1    <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0001                         </span><br><span class="line">10   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0010                         </span><br><span class="line">20   <span class="builtin-name">enable</span> <span class="built_in"> default </span>      <span class="builtin-name">enable</span>  <span class="builtin-name">disable</span>   <span class="built_in"> VLAN </span>0020</span><br></pre></td></tr></table></figure>
-<h1 id="交换机链路类型"><a href="#交换机链路类型" class="headerlink" title="交换机链路类型"></a>交换机链路类型</h1><p>access – 一般用来连接通信系节点（终端）<br><br>特点：“进打出剥”–进入交换机打上vlan号标签 出去的时候剥掉 <br></p>
-<p>trunk  – 一般用来连接网络设备<br><br>特点：</p>
-<p>[Huawei]stp disable  –关闭生成树功能</p>
+<p><strong>查看某一个页面被访问的次数</strong><br>grep “/index.php” log_file | wc -l </p>
+<p><strong>查看每一个IP访问了多少个页面</strong><br>awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &gt; log.txtsort -n -t ‘ ‘ -k 2 log.txt 配合sort进一步排序 </p>
+<p><strong>将每个IP访问的页面数进行从小到大排序</strong>   </p>
+<blockquote>
+<p>awk ‘{++S[$1]} END {for (a in S) print S[a],a}’ log_file | sort -n </p>
+</blockquote>
+<p><--more--></--more--></p>
+<p><strong>查看某一个IP访问了哪些页面</strong>  </p>
+<blockquote>
+<p>grep ^111.111.111.111 log_file| awk ‘{print $1,$7}’ </p>
+</blockquote>
+<p><strong>去掉搜索引擎统计的页面</strong>  </p>
+<blockquote>
+<p>awk ‘{print $12,$1}’ log_file | grep ^”Mozilla | awk ‘{print $2}’ |sort | uniq | wc -l </p>
+</blockquote>
+<p><strong>查看2015年8月16日14时这一个小时内有多少IP访问</strong></p>
+<blockquote>
+<p>awk ‘{print $4,$1}’ log_file | grep 16/Aug/2015:14 | awk ‘{print $2}’| sort | uniq | wc -l </p>
+</blockquote>
+<p><strong>查看访问前十个ip地址</strong>  </p>
+<blockquote>
+<p>awk ‘{print $1}’ |sort|uniq -c|sort -nr |head -10 access_log </p>
+</blockquote>
+<p>uniq -c 相当于分组统计并把统计数放在最前面  </p>
+<blockquote>
+<p>cat access.log|awk ‘{print $1}’|sort|uniq -c|sort -nr|head -10</p>
+</blockquote>
+<p>cat access.log|awk ‘{counts[$(11)]+=1}; END {for(url in counts) print counts[url], url} </p>
+<p><strong>访问次数最多的10个文件或页面</strong>  </p>
+<p><strong>访问量最大的前20个ip</strong>   </p>
+<blockquote>
+<p>cat log_file|awk ‘{print $11}’|sort|uniq -c|sort -nr|head -20<br>awk ‘{print $1}’ log_file |sort -n -r |uniq -c | sort -n -r | head -20 </p>
+</blockquote>
+<p><strong>通过子域名访问次数，依据referer来计算，稍有不准</strong>  </p>
+<blockquote>
+<p>cat access.log | awk ‘{print $11}’ | sed -e ‘ s/http:////‘ -e ‘ s//.*//‘ | sort | uniq -c | sort -rn | head -20 </p>
+</blockquote>
+<p><strong>列出传输大小最大的几个文件  </strong></p>
+<blockquote>
+<p>cat <a href="http://www.access.log" target="_blank" rel="noopener">www.access.log</a> |awk ‘($7~/.php/){print $10 “ “ $1 “ “ $4 “ “ $7}’|sort -nr|head -100 </p>
+</blockquote>
+<p><strong>列出输出大于200000byte</strong>(约200kb)的页面以及对应页面发生次数</p>
+<blockquote>
+<p>cat <a href="http://www.access.log" target="_blank" rel="noopener">www.access.log</a> |awk ‘($10 &gt; 200000 &amp;&amp; $7~/.php/){print $7}’|sort -n|uniq -c|sort -nr|head -100 </p>
+</blockquote>
+<p><strong>如果日志最后一列记录的是页面文件传输时间，则有列出到客户端最耗时的页面</strong>  </p>
+<blockquote>
+<p>cat <a href="http://www.access.log" target="_blank" rel="noopener">www.access.log</a> |awk ‘($7~/.php/){print $NF “ “ $1 “ “ $4 “ “ $7}’|sort -nr|head -100 </p>
+</blockquote>
+<p><strong>列出最最耗时的页面(超过60秒的)的以及对应页面发生次数</strong></p>
+<blockquote>
+<p>cat <a href="http://www.access.log" target="_blank" rel="noopener">www.access.log</a> |awk ‘($NF &gt; 60 &amp;&amp; $7~/.php/){print $7}’|sort -n|uniq -c|sort -nr|head -100</p>
+</blockquote>
+<p><strong>列出传输时间超过 30 秒的文件</strong>  </p>
+<blockquote>
+<p>cat <a href="http://www.access.log" target="_blank" rel="noopener">www.access.log</a> |awk ‘($NF &gt; 30){print $7}’|sort -n|uniq -c|sort -nr|head -20 </p>
+</blockquote>
+<p><strong>列出当前服务器每一进程运行的数量，倒序排列</strong></p>
+<blockquote>
+<p>ps -ef | awk -F ‘ ‘ ‘{print $8 “ “ $9}’ |sort | uniq -c |sort -nr |head -20 </p>
+</blockquote>
+<h3 id="可以使用如下参数查看数据"><a href="#可以使用如下参数查看数据" class="headerlink" title="==++可以使用如下参数查看数据++=="></a>==++可以使用如下参数查看数据++==</h3><p><strong>查看apache当前并发访问数</strong><br>对比httpd.conf中MaxClients的数字差距多少  </p>
+<blockquote>
+<p>netstat -an | grep ESTABLISHED | wc -l</p>
+</blockquote>
+<p><strong>统计httpd进程数，连个请求会启动一个进程，使用于Apache服务器</strong></p>
+<blockquote>
+<p>ps -ef|grep httpd|wc -l<br>1388 </p>
+</blockquote>
+<p>1388表示Apache能够处理1388个并发请求，这个值Apache可根据负载情况自动调整  </p>
+<p><strong>是当前所有80端口的请求总数</strong></p>
+<blockquote>
+<p>netstat -nat|grep -i “80”|wc -l   </p>
+</blockquote>
+<p>netstat -an会打印系统当前网络链接状态，而grep -i “80”是用来提取与80端口有关的连接的，wc -l进行连接数统计。</p>
+<p><strong>netstat -na|grep ESTABLISHED|wc -l</strong></p>
+<p>netstat -an会打印系统当前网络链接状态，而grep ESTABLISHED 提取出已建立连接的信息。 然后wc -l统计最终返回的数字就是当前所有80端口的已建立连接的总数。</p>
+<p><strong>查看所有建立连接的详细记录</strong></p>
+<blockquote>
+<p>netstat -nat||grep ESTABLISHED|wc </p>
+</blockquote>
+<p><strong>输出每个ip的连接数，以及总的各个状态的连接数</strong></p>
+<blockquote>
+<p>netstat -n | awk ‘/^tcp/ {n=split($(NF-1),array,”:”);if(n&lt;=2)++S[array[(1)]];else++S[array[(4)]];++s[$NF];++N} END {for(a in S){printf(“%-20s %s”, a, S[a]);++I}printf(“%-20s %s”,”TOTAL_IP”,I);for(a in s) printf(“%-20s %s”,a, s[a]);printf(“%-20s %s”,”TOTAL_LINK”,N);}’ </p>
+</blockquote>
+<h2 id="其他的收集"><a href="#其他的收集" class="headerlink" title="==其他的收集=="></a>==其他的收集==</h2><p><strong>分析日志文件下2012-05-04 访问页面最高 的前20个 URL 并排序</strong> </p>
+<blockquote>
+<p>cat access.log |grep ‘04/May/2012’| awk ‘{print $11}’|sort|uniq -c|sort -nr|head -20</p>
+</blockquote>
+<p><strong>查询受访问页面的URL地址中 含有 <a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a> 网址的 IP 地址</strong></p>
+<blockquote>
+<p>cat access_log | awk ‘($11~/<a href="http://www.abc.com/){print" target="_blank" rel="noopener">www.abc.com/){print</a> $1}’|sort|uniq -c|sort -nr </p>
+</blockquote>
+<p><strong>获取访问最高的10个IP地址 同时也可以按时间来查询</strong></p>
+<blockquote>
+<p>cat linewow-access.log|awk ‘{print $1}’|sort|uniq -c|sort -nr|head -10 </p>
+</blockquote>
+<p><strong>时间段查询日志时间段的情况</strong>  </p>
+<blockquote>
+<p>cat linewow-access.log|awk ‘{print $1}’|sort|uniq -c|sort -nr|head -10 </p>
+</blockquote>
+<p><strong>分析2015/8/15 到 2015/8/16访问”/index.php?g=Member&amp;m=Public&amp;a=sendValidCode”的IP倒序排列</strong></p>
+<blockquote>
+<p>cat log_file | egrep ‘15/Aug/2015|16/Aug/2015’ | awk ‘{if($7 == “/index.php?g=Member&amp;m=Public&amp;a=sendValidCode”) print $1,$7}’|sort|uniq -c|sort -nr </p>
+</blockquote>
+<p><strong>($7~/.php/) $7里面包含.php的就输出,本句的意思是最耗时的一百个PHP页面</strong></p>
+<blockquote>
+<p>cat log_file |awk ‘($7~/.php/){print $NF “ “ $1 “ “ $4 “ “ $7}’|sort -nr|head -100 </p>
+</blockquote>
+<p><strong>列出最最耗时的页面(超过60秒的)的以及对应页面发生次数</strong></p>
+<blockquote>
+<p>cat access.log |awk ‘($NF &gt; 60 &amp;&amp; $7~/.php/){print $7}’|sort -n|uniq -c|sort -nr|head -100 </p>
+</blockquote>
+<p><strong>统计网站流量(G)</strong></p>
+<blockquote>
+<pre><code>cat access.log |awk &apos;{sum+=$10} END {print sum/1024/1024/1024}&apos; 
+</code></pre></blockquote>
+<p><strong>统计404的连接</strong></p>
+<blockquote>
+<pre><code>awk &apos;($9 ~/404/)&apos; access.log | awk &apos;{print $9,$7}&apos; | sort 
+</code></pre></blockquote>
+<p><strong>统计http status</strong></p>
+<blockquote>
+<pre><code>cat access.log |awk &apos;{counts[$(9)]+=1}; END {for(code in counts) print code, counts[code]}&apos;  
+cat access.log |awk &apos;{print $9}&apos;|sort|uniq -c|sort -rn 
+</code></pre></blockquote>
+<p><strong>每秒并发</strong></p>
+<blockquote>
+<pre><code>watch &quot;awk &apos;{if($9~/200|30|404/)COUNT[$4]++}END{for( a in COUNT) print a,COUNT[a]}&apos; log_file|sort -k 2 -nr|head -n10&quot; 
+</code></pre></blockquote>
+<p><strong>带宽统计</strong></p>
+<blockquote>
+<pre><code>cat apache.log |awk &apos;{if($7~/GET/) count++}END{print &quot;client_request=&quot;count}&apos;  
+cat apache.log |awk &apos;{BYTE+=$11}END{print &quot;client_kbyte_out=&quot;BYTE/1024&quot;KB&quot;}&apos; 
+</code></pre></blockquote>
+<p><strong>找出某天访问次数最多的10个IP</strong></p>
+<blockquote>
+<pre><code>cat /tmp/access.log | grep &quot;20/Mar/2011&quot; |awk &apos;{print $3}&apos;|sort |uniq -c|sort -nr|head 
+</code></pre></blockquote>
+<p><strong>当天ip连接数最高的ip都在干些什么</strong></p>
+<blockquote>
+<pre><code>cat access.log | grep &quot;10.0.21.17&quot; | awk &apos;{print $8}&apos; | sort | uniq -c | sort -nr | head -n 10 
+</code></pre></blockquote>
+<p><strong>小时单位里ip连接数最多的10个时段</strong></p>
+<blockquote>
+<pre><code>awk -vFS=&quot;[:]&quot; &apos;{gsub(&quot;-.*&quot;,&quot;&quot;,$1);num[$2&quot; &quot;$1]++}END{for(i in num)print i,num[i]}&apos; log_file | sort -n -k 3 -r | head -10 
+</code></pre></blockquote>
+<p><strong>找出访问次数最多的几个分钟</strong></p>
+<blockquote>
+<pre><code>awk &apos;{print $1}&apos; access.log | grep &quot;20/Mar/2011&quot; |cut -c 14-18|sort|uniq -c|sort -nr|head 
+</code></pre></blockquote>
+<p><strong>取5分钟日志</strong></p>
+<blockquote>
+<pre><code>if [ $DATE_MINUTE != $DATE_END_MINUTE ] ;then #则判断开始时间戳与结束时间戳是否相等 
+START_LINE=sed -n &quot;/$DATE_MINUTE/=&quot; $APACHE_LOG|head -n1 #如果不相等，则取出开始时间戳的行号，与结束时间戳的行号 
+</code></pre></blockquote>
+<h3 id="查看tcp的链接状态"><a href="#查看tcp的链接状态" class="headerlink" title="查看tcp的链接状态"></a>查看tcp的链接状态</h3><blockquote>
+<pre><code>netstat -nat |awk &apos;{print $6}&apos;|sort|uniq -c|sort -rn   
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]};END {for(a in S) print a, S[a]}&apos;  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++state[$NF]}; END {for(key in state) print key,&quot;&quot;,state[key]}&apos;   
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++arr[$NF]};END {for(k in arr) print k,&quot;&quot;,arr[k]}&apos;   
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -n |awk &apos;/^tcp/ {print $NF}&apos;|sort|uniq -c|sort -rn  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -ant | awk &apos;{print $NF}&apos; | grep -v &apos;[a-z]&apos; | sort | uniq -c 
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -ant|awk &apos;/ip:80/{split($5,ip,&quot;:&quot;);++S[ip[1]]}END{for (a in S) print S[a],a}&apos; |sort -n  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -ant|awk &apos;/:80/{split($5,ip,&quot;:&quot;);++S[ip[1]]}END{for (a in S) print S[a],a}&apos; |sort -rn|head -n 10   
+</code></pre></blockquote>
+<blockquote>
+<pre><code>awk &apos;BEGIN{printf (&quot;http_codecount_num&quot;)}{COUNT[$10]++}END{for (a in COUNT) printf a&quot;&quot;COUNT[a]&quot;&quot;}&apos; 
+</code></pre></blockquote>
+<p><strong>查找请求数前20个IP(常用于查找攻来源)：</strong></p>
+<blockquote>
+<pre><code>netstat -anlp|grep 80|grep tcp|awk &apos;{print $5}&apos;|awk -F: &apos;{print $1}&apos;|sort|uniq -c|sort -nr|head -n20  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>netstat -ant |awk &apos;/:80/{split($5,ip,&quot;:&quot;);++A[ip[1]]}END{for(i in A) print A[i],i}&apos; |sort -rn|head -n20 
+</code></pre></blockquote>
+<p><strong>用tcpdump嗅探80端口的访问看看谁最高</strong></p>
+<blockquote>
+<pre><code>tcpdump -i eth0 -tnn dst port 80 -c 1000 | awk -F&quot;.&quot; &apos;{print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4}&apos; | sort | uniq -c | sort -nr |head -20 
+</code></pre></blockquote>
+<p><strong>查找较多time_wait连接</strong></p>
+<blockquote>
+<pre><code>netstat -n|grep TIME_WAIT|awk &apos;{print $5}&apos;|sort|uniq -c|sort -rn|head -n20 
+</code></pre></blockquote>
+<p><strong>找查较多的SYN连接</strong></p>
+<blockquote>
+<pre><code>netstat -an | grep SYN | awk &apos;{print $5}&apos; | awk -F: &apos;{print $1}&apos; | sort | uniq -c | sort -nr | more 
+</code></pre></blockquote>
+<p><strong>根据端口列进程</strong></p>
+<blockquote>
+<pre><code>netstat -ntlp | grep 80 | awk &apos;{print $7}&apos; | cut -d/ -f1 
+</code></pre></blockquote>
+<p><strong>查看了连接数和当前的连接数</strong></p>
+<blockquote>
+<pre><code>netstat -ant | grep $ip:80 | wc -l  
+netstat -ant | grep $ip:80 | grep EST | wc -l 
+</code></pre></blockquote>
+<p><strong>查看IP访问次数</strong></p>
+<blockquote>
+<pre><code>netstat -nat|grep &quot;:80&quot;|awk &apos;{print $5}&apos; |awk -F: &apos;{print $1}&apos; | sort| uniq -c|sort -n 
+</code></pre></blockquote>
+<h2 id="Linux命令分析当前的链接状况"><a href="#Linux命令分析当前的链接状况" class="headerlink" title="Linux命令分析当前的链接状况"></a>Linux命令分析当前的链接状况</h2><blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;   
+watch &quot;netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;&quot;   
+</code></pre></blockquote>
+<pre><code># 通过watch可以一直监控 
+</code></pre><blockquote>
+<pre><code>LAST_ACK 5 #关闭一个TCP连接需要从两个方向上分别进行关闭，双方都是通过发送FIN来表示单方向数据的关闭，当通信双方发送了最后一个FIN的时候，发送方此时处于LAST_ACK状态，当发送方收到对方的确认（Fin的Ack确认）后才真正关闭整个TCP连接； 
+</code></pre></blockquote>
+<blockquote>
+<pre><code>SYN_RECV 30  # 表示正在等待处理的请求数； 
+</code></pre></blockquote>
+<blockquote>
+<pre><code>ESTABLISHED 1597 # 表示正常数据传输状态；  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>FIN_WAIT1 51 # 表示server端主动要求关闭tcp连接；  
+</code></pre></blockquote>
+<blockquote>
+<pre><code>FIN_WAIT2 504 # 表示客户端中断连接； 
+</code></pre></blockquote>
+<blockquote>
+<pre><code>TIME_WAIT 1057  # 表示处理完毕，等待超时结束的请求数；  
+</code></pre></blockquote>
 
       
 
@@ -205,7 +434,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Huawei 华为 路由器 交换机</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Linux 运维 命令</a>
         		</li>
       		
 		</ul>
@@ -261,7 +490,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://blog.hbxy.xyz/2019/07/07/Huawei3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.hbxy.xyz/2019/07/13/Linux运维笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +504,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/07/Huawei4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          华为网络设备配置 第四节
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/07/Huawei2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">华为网络设备配置 第二节</div>
+    <a href="/2019/07/07/Huawei6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">华为网络设备配置 第六节</div>
       <i class="icon-circle-right"></i>
     </a>
   
