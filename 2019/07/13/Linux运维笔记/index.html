@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.hbxy.xyz">
   <title>Linux运维笔记 | Ha1cker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
+  <meta name="description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数    grep “/index.php” log_file | wc -l   查看每一个IP访问了多少个页面    awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtso">
 <meta name="keywords" content="Linux 运维 命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux运维笔记">
 <meta property="og:url" content="http://blog.hbxy.xyz/2019/07/13/Linux运维笔记/index.html">
 <meta property="og:site_name" content="Ha1cker">
-<meta property="og:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
+<meta property="og:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数    grep “/index.php” log_file | wc -l   查看每一个IP访问了多少个页面    awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtso">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T16:01:10.287Z">
+<meta property="og:updated_time" content="2019-07-13T16:07:11.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
-<meta name="twitter:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数grep “/index.php” log_file | wc -l  查看每一个IP访问了多少个页面awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtsort -n -t">
+<meta name="twitter:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数    grep “/index.php” log_file | wc -l   查看每一个IP访问了多少个页面    awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtso">
   
     <link rel="alternative" href="/atom.xml" title="Ha1cker" type="application/atom+xml">
   
@@ -183,13 +183,19 @@
 <blockquote>
 <p>awk ‘{print $1}’ log_file|sort|uniq|wc -l</p>
 </blockquote>
-<p><strong>查看某一个页面被访问的次数</strong><br>grep “/index.php” log_file | wc -l </p>
-<p><strong>查看每一个IP访问了多少个页面</strong><br>awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &gt; log.txtsort -n -t ‘ ‘ -k 2 log.txt 配合sort进一步排序 </p>
+<p><strong>查看某一个页面被访问的次数</strong>  </p>
+<blockquote>
+<p>grep “/index.php” log_file | wc -l </p>
+</blockquote>
+<p><strong>查看每一个IP访问了多少个页面</strong>  </p>
+<blockquote>
+<p>awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &gt; log.txtsort -n -t ‘ ‘ -k 2 log.txt 配合sort进一步排序 </p>
+</blockquote>
 <p><strong>将每个IP访问的页面数进行从小到大排序</strong>   </p>
 <blockquote>
 <p>awk ‘{++S[$1]} END {for (a in S) print S[a],a}’ log_file | sort -n </p>
 </blockquote>
-<a id="more"></a>
+<!--更多-->
 <p><strong>查看某一个IP访问了哪些页面</strong>  </p>
 <blockquote>
 <p>grep ^111.111.111.111 log_file| awk ‘{print $1,$7}’ </p>
@@ -660,7 +666,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux 运维 命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,7 +678,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux 运维 命令</a>
               </li>
              
               <li class="article-tag-list-item">
