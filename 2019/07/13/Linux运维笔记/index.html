@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ha1cker">
 <meta property="og:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数    grep “/index.php” log_file | wc -l   查看每一个IP访问了多少个页面    awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtso">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T16:07:11.157Z">
+<meta property="og:updated_time" content="2019-07-13T16:09:20.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux运维笔记">
 <meta name="twitter:description" content="查看有多少IP访问    awk ‘{print $1}’ log_file|sort|uniq|wc -l  查看某一个页面被访问的次数    grep “/index.php” log_file | wc -l   查看每一个IP访问了多少个页面    awk ‘{++S[$1]} END {for (a in S) print a,S[a]}’ log_file &amp;gt; log.txtso">
@@ -195,7 +195,7 @@
 <blockquote>
 <p>awk ‘{++S[$1]} END {for (a in S) print S[a],a}’ log_file | sort -n </p>
 </blockquote>
-<!--更多-->
+<a id="more"></a>
 <p><strong>查看某一个IP访问了哪些页面</strong>  </p>
 <blockquote>
 <p>grep ^111.111.111.111 log_file| awk ‘{print $1,$7}’ </p>
@@ -250,7 +250,7 @@
 <blockquote>
 <p>ps -ef | awk -F ‘ ‘ ‘{print $8 “ “ $9}’ |sort | uniq -c |sort -nr |head -20 </p>
 </blockquote>
-<h3 id="可以使用如下参数查看数据"><a href="#可以使用如下参数查看数据" class="headerlink" title="==++可以使用如下参数查看数据++=="></a>==++可以使用如下参数查看数据++==</h3><p><strong>查看apache当前并发访问数</strong><br>对比httpd.conf中MaxClients的数字差距多少  </p>
+<h3 id="可以使用如下参数查看数据"><a href="#可以使用如下参数查看数据" class="headerlink" title="可以使用如下参数查看数据"></a>可以使用如下参数查看数据</h3><p><strong>查看apache当前并发访问数</strong><br>对比httpd.conf中MaxClients的数字差距多少  </p>
 <blockquote>
 <p>netstat -an | grep ESTABLISHED | wc -l</p>
 </blockquote>
@@ -414,18 +414,10 @@ watch &quot;netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S
 </code></pre></blockquote>
 <blockquote>
 <pre><code>SYN_RECV 30  # 表示正在等待处理的请求数； 
-</code></pre></blockquote>
-<blockquote>
-<pre><code>ESTABLISHED 1597 # 表示正常数据传输状态；  
-</code></pre></blockquote>
-<blockquote>
-<pre><code>FIN_WAIT1 51 # 表示server端主动要求关闭tcp连接；  
-</code></pre></blockquote>
-<blockquote>
-<pre><code>FIN_WAIT2 504 # 表示客户端中断连接； 
-</code></pre></blockquote>
-<blockquote>
-<pre><code>TIME_WAIT 1057  # 表示处理完毕，等待超时结束的请求数；  
+ESTABLISHED 1597 # 表示正常数据传输状态；  
+FIN_WAIT1 51 # 表示server端主动要求关闭tcp连接；  
+FIN_WAIT2 504 # 表示客户端中断连接； 
+TIME_WAIT 1057  # 表示处理完毕，等待超时结束的请求数；  
 </code></pre></blockquote>
 
       
@@ -666,7 +658,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux 运维 命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,15 +666,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux 运维 命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">随笔 大学 服务器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
